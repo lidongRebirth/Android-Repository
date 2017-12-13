@@ -17,7 +17,6 @@ public class MainActivity extends Activity {
 
     private EditText userName,password;
     private Button login;
-    private  String str1,str2;
     private CheckBox rem_pw, auto_login;
     private SharedPreferences sp;
     private String userNameValue,passwordValue;
@@ -37,10 +36,10 @@ public class MainActivity extends Activity {
         sp = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
 
         //判断记住密码多选框的状态
-        if(sp.getBoolean("ISCHECK", false))
+        if(sp.getBoolean("ISCHECK", false))//刚打开是没有选中记住密码
         {
             //设置默认是记录密码状态
-            rem_pw.setChecked(false);
+            rem_pw.setChecked(true);
             userName.setText(sp.getString("USER_NAME", ""));
             password.setText(sp.getString("PASSWORD", ""));
             //判断自动登陆多选框状态
@@ -54,27 +53,21 @@ public class MainActivity extends Activity {
 
             }
         }
-
-
-
-
-
-
         login.setOnClickListener(new  OnClickListener() {
             @Override
             public void onClick(View view) {
-                str1 = userName.getText().toString();
-                str2 = password.getText().toString();
-                if (str1.equals("root") && str2.equals("123")) {
+                userNameValue = userName.getText().toString();
+                passwordValue = password.getText().toString();
+                if (userNameValue.equals("root") && passwordValue.equals("123")) {
                     Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
 
                     //登录成功和记住密码框为选中状态才保存用户信息
                     if (rem_pw.isChecked()) {
                      //记住用户名、密码、
                          SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("USER_NAME", userNameValue);
-                            editor.putString("PASSWORD", passwordValue);
-                            editor.commit();
+                         editor.putString("USER_NAME", userNameValue);
+                         editor.putString("PASSWORD", passwordValue);
+                         editor.commit();
                      }
                     Intent intent = new Intent(MainActivity.this, Activity2.class);
                     startActivity(intent);
@@ -104,13 +97,13 @@ public class MainActivity extends Activity {
         rem_pw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (rem_pw.isChecked()) {
-
-                    System.out.println("记住密码已选中");
+                    Toast.makeText(getApplicationContext(),"已选中记住用户名密码",Toast.LENGTH_SHORT);
+//                    System.out.println("记住密码已选中");
                     sp.edit().putBoolean("ISCHECK", true).commit();
 
                 }else {
-
-                    System.out.println("记住密码没有选中");
+                    Toast.makeText(getApplicationContext(),"未选中记住用户名密码",Toast.LENGTH_SHORT);
+//                    System.out.println("记住密码没有选中");
                     sp.edit().putBoolean("ISCHECK", false).commit();
 
                 }
@@ -122,11 +115,13 @@ public class MainActivity extends Activity {
         auto_login.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (auto_login.isChecked()) {
-                    System.out.println("自动登录已选中");
+                    Toast.makeText(getApplicationContext(),"自动登录已选中",Toast.LENGTH_SHORT);
+//                    System.out.println("自动登录已选中");
                     sp.edit().putBoolean("AUTO_ISCHECK", true).commit();
 
                 } else {
-                    System.out.println("自动登录没有选中");
+                    Toast.makeText(getApplicationContext(),"自动登录没有选中",Toast.LENGTH_SHORT);
+//                    System.out.println("自动登录没有选中");
                     sp.edit().putBoolean("AUTO_ISCHECK", false).commit();
                 }
             }

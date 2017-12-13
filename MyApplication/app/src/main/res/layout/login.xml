@@ -84,7 +84,7 @@
            android:layout_height="wrap_content"
            android:layout_weight="1"
            android:checked="false"
-           android:text="记住密码"
+           android:text="记住用户名密码"
            android:textColor="@android:color/background_light"
            android:textStyle="bold" />
 

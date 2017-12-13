@@ -89,37 +89,47 @@
 
     <RadioGroup
         android:id="@+id/main_tab"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <RadioButton
             android:id="@+id/radio_button0"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="2.0dip"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:gravity="center"
+            android:drawableTop="@drawable/radiobutton1"
             android:text="广场"
-            android:layout_weight="1"/>
+            android:textColor="@drawable/colorselect"
+            android:layout_weight="1"
+            android:button="@null"/>
         <RadioButton
             android:id="@+id/radio_button1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="2.0dip"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:gravity="center"
+            android:drawableTop="@drawable/radiobutton2"
             android:text="我"
-            android:layout_weight="1"/>
+            android:textColor="@drawable/colorselect"
+            android:layout_weight="1"
+            android:button="@null"/>
 
         <RadioButton
             android:id="@+id/radio_button2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="2.0dip"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:gravity="center"
+            android:drawableTop="@drawable/radiobutton3"
             android:text="更多"
-            android:layout_weight="1" />
+            android:textColor="@drawable/colorselect"
+            android:layout_weight="1"
+            android:button="@null"/>
 
 
     </RadioGroup>
