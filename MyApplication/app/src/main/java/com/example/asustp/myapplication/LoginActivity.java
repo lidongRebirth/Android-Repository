@@ -13,7 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class LoginActivity extends Activity {
 
     private EditText userName,password;
     private Button login;
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
                 //设置默认是自动登录状态
                 auto_login.setChecked(true);
                 //跳转界面
-                Intent intent = new Intent(MainActivity.this,Activity2.class);
+                Intent intent = new Intent(LoginActivity.this,Activity2.class);
                 startActivity(intent);
 
             }
@@ -69,7 +69,7 @@ public class MainActivity extends Activity {
                          editor.putString("PASSWORD", passwordValue);
                          editor.commit();
                      }
-                    Intent intent = new Intent(MainActivity.this, Activity2.class);
+                    Intent intent = new Intent(LoginActivity.this, Activity2.class);
                     startActivity(intent);
                 }
                 else{
@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
 //                    if(str2.equals("root"))
 //                    {
 //                        Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
-//                        Intent intent=new Intent(MainActivity.this,Activity2.class);
+//                        Intent intent=new Intent(LoginActivity.this,Activity2.class);
 //                        startActivity(intent);
 //                    }
 //                    else {
