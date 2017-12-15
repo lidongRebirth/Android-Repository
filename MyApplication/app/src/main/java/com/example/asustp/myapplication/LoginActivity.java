@@ -48,7 +48,7 @@ public class LoginActivity extends Activity {
                 //设置默认是自动登录状态
                 auto_login.setChecked(true);
                 //跳转界面
-                Intent intent = new Intent(LoginActivity.this,Activity2.class);
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
 
             }
@@ -69,7 +69,7 @@ public class LoginActivity extends Activity {
                          editor.putString("PASSWORD", passwordValue);
                          editor.commit();
                      }
-                    Intent intent = new Intent(LoginActivity.this, Activity2.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
                 else{
@@ -80,7 +80,7 @@ public class LoginActivity extends Activity {
 //                    if(str2.equals("root"))
 //                    {
 //                        Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
-//                        Intent intent=new Intent(LoginActivity.this,Activity2.class);
+//                        Intent intent=new Intent(LoginActivity.this,MainActivity.class);
 //                        startActivity(intent);
 //                    }
 //                    else {

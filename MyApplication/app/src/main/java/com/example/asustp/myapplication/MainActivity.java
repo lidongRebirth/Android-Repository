@@ -11,17 +11,21 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class Activity2 extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     RadioGroup select;
     RadioButton btn1,btn2,btn3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();//去掉标题栏
         setContentView(R.layout.activity_main);
+
         select=(RadioGroup)findViewById(R.id.main_tab);
         btn1=(RadioButton)findViewById(R.id.radio_button0);
         btn2=(RadioButton)findViewById(R.id.radio_button1);
         btn3=(RadioButton)findViewById(R.id.radio_button2);
+
+
         //碎片填充容器
         replaceFragment(new Fragment1());//刚上来就位于广场，所以先填充
         select.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

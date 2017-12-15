@@ -1,10 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+    android:layout_height="match_parent"
+    android:id="@+id/fragment2">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="学号:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/xuehao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="此处来从xml文件中获取学号"
+            android:textColor="@android:color/background_dark"
+            android:textSize="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="密码:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="从xml文件中获取密码"
+            android:inputType="textPassword"
+            android:textColor="@android:color/background_dark"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:background="@null"/>
+
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="此处显示我的信息"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/changepass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改密码"
+            android:layout_weight="1"
+            />
+        <Button
+            android:id="@+id/changeid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换帐号"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
 
 </LinearLayout>
