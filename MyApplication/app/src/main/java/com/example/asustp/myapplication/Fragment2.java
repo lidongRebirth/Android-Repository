@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,8 +25,12 @@ public class Fragment2 extends Fragment {
     private SharedPreferences sp;
     private TextView xuehao;
     private EditText password;
-    private Button passbtn,idbtn;
+    private Button passbtn,idbtn,makesurechange;
     private ImageButton showPassword;
+    private String passwordValue;//更改密码时使用
+    private EditText loginPassword;//获取登录界面的密码
+    private CheckBox rem_pass;//记住密码按钮
+
 
 
     @Override
@@ -39,6 +44,9 @@ public class Fragment2 extends Fragment {
         passbtn=view.findViewById(R.id.changepass);
         idbtn=view.findViewById(R.id.changeid);
         showPassword=view.findViewById(R.id.showpassword);
+        makesurechange=view.findViewById(R.id.makesurechange);
+        loginPassword=view.findViewById(R.id.pass);
+        rem_pass=view.findViewById(R.id.checkBox1);
 
 
         xuehao.setText(sp.getString("USER_NAME",""));//从SharePerference中获取学号和密码
@@ -51,7 +59,7 @@ public class Fragment2 extends Fragment {
 //                      password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());//EditText动态显示
 //            }
 //        });
-        showPassword.setOnTouchListener(new View.OnTouchListener() {
+        showPassword.setOnTouchListener(new View.OnTouchListener() {//密码的呈现与隐藏事件
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()){
@@ -102,16 +110,39 @@ public class Fragment2 extends Fragment {
 
         passbtn.setOnClickListener(new View.OnClickListener() {//修改密码按钮的点击事件
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {//修改密码事件
                 password.setFocusableInTouchMode(true);password.setFocusable(true);password.requestFocus();//设置EditText为可编辑状态，必须三个都要写
 
                 Toast.makeText(getContext(),sp.getString("USER_NAME",""),Toast.LENGTH_SHORT).show();//测试时少写show()所以显示不出来
                 Toast.makeText(getContext(),sp.getString("PASSWORD",""),Toast.LENGTH_SHORT).show();//测试时少写show()所以显示不出来
+                //此处同步一下
+                makesurechange.setVisibility(view.VISIBLE);//按钮可见
+            }
+        });
+
+
+
+        //此处同步一下
+        makesurechange.setOnClickListener(new View.OnClickListener() {//确认更改密码设置
+            @Override
+            public void onClick(View view) {
+
+                //更改密码
+                SharedPreferences.Editor editor = sp.edit();
+                passwordValue=password.getText().toString();
+                editor.putString("PASSWORD", passwordValue);
+                editor.commit();//一定要提交
+                password.setFocusable(false);password.setFocusableInTouchMode(false);//密码框不可编辑
+//                loginPassword.setText("");
+              //  rem_pass.setChecked(false);//登录界面不记住密码
+                Toast.makeText(getContext(),sp.getString("PASSWORD", ""),Toast.LENGTH_SHORT).show();
+
 
             }
         });
         return view;
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

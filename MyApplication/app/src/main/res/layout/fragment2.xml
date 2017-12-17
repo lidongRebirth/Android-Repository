@@ -88,6 +88,12 @@
             android:layout_weight="1"
             android:text="切换帐号" />
     </LinearLayout>
+    <Button
+        android:id="@+id/makesurechange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认更改"
+        android:visibility="gone"/>
 
 
 </LinearLayout>

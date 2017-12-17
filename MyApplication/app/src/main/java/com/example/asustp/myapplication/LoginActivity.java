@@ -17,7 +17,7 @@ public class LoginActivity extends Activity {
 
     private EditText userName,password;
     private Button login;
-    private CheckBox rem_pw, auto_login;
+    private CheckBox rem_pw, auto_login;//记住密码   自动登录
     private SharedPreferences sp;
     private String userNameValue,passwordValue;
 
@@ -58,7 +58,8 @@ public class LoginActivity extends Activity {
             public void onClick(View view) {
                 userNameValue = userName.getText().toString();
                 passwordValue = password.getText().toString();
-                if (userNameValue.equals("root") && passwordValue.equals("123")) {
+                //此处同步一下
+                if (userNameValue.equals(sp.getString("USER_NAME", "")) && passwordValue.equals(sp.getString("PASSWORD", ""))) {
                     Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
 
                     //登录成功和记住密码框为选中状态才保存用户信息
