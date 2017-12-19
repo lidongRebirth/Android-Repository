@@ -113,8 +113,8 @@ public class Fragment2 extends Fragment {
             public void onClick(View view) {//修改密码事件
                 password.setFocusableInTouchMode(true);password.setFocusable(true);password.requestFocus();//设置EditText为可编辑状态，必须三个都要写
 
-                Toast.makeText(getContext(),sp.getString("USER_NAME",""),Toast.LENGTH_SHORT).show();//测试时少写show()所以显示不出来
-                Toast.makeText(getContext(),sp.getString("PASSWORD",""),Toast.LENGTH_SHORT).show();//测试时少写show()所以显示不出来
+//                Toast.makeText(getContext(),sp.getString("USER_NAME",""),Toast.LENGTH_SHORT).show();//测试时少写show()所以显示不出来
+//                Toast.makeText(getContext(),sp.getString("PASSWORD",""),Toast.LENGTH_SHORT).show();//测试时少写show()所以显示不出来
                 //此处同步一下
                 makesurechange.setVisibility(view.VISIBLE);//按钮可见
             }
@@ -135,8 +135,9 @@ public class Fragment2 extends Fragment {
                 password.setFocusable(false);password.setFocusableInTouchMode(false);//密码框不可编辑
 //                loginPassword.setText("");
               //  rem_pass.setChecked(false);//登录界面不记住密码
-                Toast.makeText(getContext(),sp.getString("PASSWORD", ""),Toast.LENGTH_SHORT).show();
-
+//                Toast.makeText(getContext(),sp.getString("PASSWORD", ""),Toast.LENGTH_SHORT).show();
+                 Toast.makeText(getContext(),"修改成功",Toast.LENGTH_SHORT).show();
+                makesurechange.setVisibility(view.GONE);//按钮可见
 
             }
         });

@@ -26,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/chat"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            />
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -43,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageButton
+            android:id="@+id/recruitBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/zhaopin"
