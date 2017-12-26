@@ -1,5 +1,6 @@
 package com.example.asustp.menulistviewtext;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +31,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Store store=storeList.get(position);
-                Toast.makeText(MainActivity.this,store.getName(),Toast.LENGTH_SHORT).show();
+
+                if(store.getName().equals("面食馆")){
+                    String Menuname=store.getName();
+
+                    Intent intent=new Intent(MainActivity.this,MenuActivity.class);//写MainActivity.this/getApplicationContext()都行
+                    intent.putExtra("key",Menuname);
+                    //intent.putExtra("key", (Bundle) parent.getAdapter().getItem(position));//
+
+
+
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(MainActivity.this,store.getName(),Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
