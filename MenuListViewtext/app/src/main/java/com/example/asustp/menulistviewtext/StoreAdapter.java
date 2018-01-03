@@ -32,6 +32,7 @@ public class StoreAdapter extends ArrayAdapter <Store>{
             viewHolder=new ViewHolder();
             viewHolder.Name=(TextView)view.findViewById(R.id.storename);
             viewHolder.Address=(TextView)view.findViewById(R.id.storeaddress);
+            viewHolder.Tel=(TextView)view.findViewById(R.id.storetel);
             view.setTag(viewHolder);//将ViewHolder存储在View
 
         }else {//convertView 为已缓存的布局，若其不为空，则直接使用
@@ -40,6 +41,7 @@ public class StoreAdapter extends ArrayAdapter <Store>{
         }
         viewHolder.Name.setText(store.getName());
         viewHolder.Address.setText(store.getAddress());
+        viewHolder.Tel.setText(store.getTel());
 
 
         return  view;
@@ -47,5 +49,6 @@ public class StoreAdapter extends ArrayAdapter <Store>{
     class  ViewHolder{
         TextView Name;
         TextView Address;
+        TextView Tel;
     }
 }
