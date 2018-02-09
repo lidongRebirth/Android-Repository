@@ -5,6 +5,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.location.BDLocation;
@@ -13,25 +15,48 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.BaiduMap.OnMapClickListener;
+import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.core.RouteLine;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.route.BikingRouteResult;
+import com.baidu.mapapi.search.route.DrivingRouteResult;
+import com.baidu.mapapi.search.route.IndoorRouteResult;
+import com.baidu.mapapi.search.route.MassTransitRouteResult;
+import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapapi.search.route.RoutePlanSearch;
+import com.baidu.mapapi.search.route.TransitRouteResult;
+import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
+import com.baidu.mapapi.search.route.WalkingRouteResult;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.attr.duration;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     public  LocationClient mLocationClient;
     private TextView positionText;
     private MapView mapView;    //呈现地图
     private BaiduMap baiduMap;//地图总控制类
     private boolean isFirstLocate=true;//防止多次调用animateMapStatus()方法
-
+    // 搜索相关**
+    RoutePlanSearch mSearch = null;    // 搜索模块，也可去掉地图模块独立使用
+    int nodeIndex = -1; // 节点索引,供浏览节点时使用//**
+    RouteLine route = null;  //路线**
+    OverlayManager routeOverlay = null;  //该类提供一个能够显示和管理多个Overlay的基类**
+    private Button roadplan;
+    double mLatitude;
+    double mLongtitude;
+    double destLatitude;
+    double destLongtitude;
+    LatLng endNode;
 
 
     @Override
@@ -72,6 +97,58 @@ public class MainActivity extends AppCompatActivity {
         }else{
             requestLocation();//自定义方法   开始地理定位
         }
+        mSearch = RoutePlanSearch.newInstance();//**创建步行线路规划检索实例
+        mSearch.setOnGetRoutePlanResultListener(listener);//设置步行线路规划检索监听者
+        roadplan=(Button)findViewById(R.id.road_plan);
+        roadplan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                PlanNode stNode = PlanNode.withCityNameAndPlaceName("北京", "西二旗地铁站");
+                baiduMap.clear();//用于清除上一次路径规划的线路
+                LatLng ll = new LatLng(mLatitude,mLongtitude);
+//                PlanNode stNode = PlanNode.withCityNameAndPlaceName(ll);
+                PlanNode stNode = PlanNode.withLocation(ll);//准备检索起、终点信息；
+                PlanNode enNode =  PlanNode.withLocation(endNode);
+//                PlanNode enNode = PlanNode.withCityNameAndPlaceName("永济", "城西派出所");
+                mSearch.walkingSearch((new WalkingRoutePlanOption())//发起步行线路规划检索
+                        .from(stNode)
+                        .to(enNode));
+            }
+        });
+
+
+        baiduMap.setOnMapClickListener(new OnMapClickListener() {//地图点击事件接口
+            @Override
+            public void onMapClick(LatLng latLng) {
+                endNode=latLng;
+            }
+
+            @Override
+            public boolean onMapPoiClick(MapPoi mapPoi) {
+                return false;
+            }
+        });
+//        BaiduMap.OnMapClickListener(new OnMapClickListener(){//此处未正确
+//
+//
+//            @Override
+//            public void onMapClick(LatLng latLng) {
+//                double a;
+//                a=latLng.latitude;
+//            }
+//
+//            @Override
+//            public boolean onMapPoiClick(MapPoi mapPoi) {
+//                return false;
+//            }
+//
+//        });
+
+
+
+
+
+
     }
 
     //将地图移动自己的位置上来
@@ -143,8 +220,10 @@ public class MainActivity extends AppCompatActivity {
         mLocationClient.stop();         //停止定位，防止后台消耗电量
         mapView.onDestroy();
         baiduMap.setMyLocationEnabled(false);
+        mSearch.destroy();//**释放检索实例；
 
     }
+
 
 
 //获取权限申请的结果  权限不够则直接退出应用
@@ -169,8 +248,66 @@ public class MainActivity extends AppCompatActivity {
             default:
         }
     }
+//**
+    OnGetRoutePlanResultListener listener = new OnGetRoutePlanResultListener() {//设置步行线路规划检索监听者；
+    @Override
+    public void onGetWalkingRouteResult(WalkingRouteResult result) {////获取步行线路规划结果
+        if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+            Toast.makeText(getApplication(),"抱歉，未找到结果",Toast.LENGTH_SHORT).show();
+        }
+        if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
+            // 起终点或途经点地址有岐义，通过以下接口获取建议查询信息
+            // result.getSuggestAddrInfo()
+            return;
+        }
+        if (result.error == SearchResult.ERRORNO.NO_ERROR) {
+            nodeIndex = -1;
 
+            route = result.getRouteLines().get(0);//route 路线
+            WalkingRouteOverlay overlay = new WalkingRouteOverlay(baiduMap);
+           // baiduMap.setOnMarkerClickListener(overlay);//地图点击事件接口
+            routeOverlay = overlay;
+            //设置路线数据
+            overlay.setData(result.getRouteLines().get(0));
+            overlay.addToMap();  //将所有overlay添加到地图中
+            overlay.zoomToSpan();//缩放地图
+        }
+    }
 
+    @Override
+    public void onGetTransitRouteResult(TransitRouteResult transitRouteResult) {
+
+    }
+
+    @Override
+    public void onGetMassTransitRouteResult(MassTransitRouteResult massTransitRouteResult) {
+
+    }
+
+    @Override
+    public void onGetDrivingRouteResult(DrivingRouteResult drivingRouteResult) {
+
+    }
+
+    @Override
+    public void onGetIndoorRouteResult(IndoorRouteResult indoorRouteResult) {
+
+    }
+
+    @Override
+    public void onGetBikingRouteResult(BikingRouteResult bikingRouteResult) {
+
+    }
+};
+
+//    private class MyWalkingRouteOverlay extends WalkingRouteOverlay {//可以自己设置地图的一些属性，然后用他不用原始的WalkingRouteOverlay类
+//
+//        public MyWalkingRouteOverlay(BaiduMap baiduMap) {
+//            super(baiduMap);
+//        }
+//    }
+
+//**以上新添//
     public class MyLocationListener implements BDLocationListener  {
 
         @Override
@@ -178,6 +315,9 @@ public class MainActivity extends AppCompatActivity {
             if (location.getLocType() == BDLocation.TypeGpsLocation || location.getLocType() == BDLocation.TypeNetWorkLocation) {
                 navigateTo(location);//当定位到当前位置时，将BDLocation对象传给navigateTo方法，用于将地图移动到此处
             }
+            //给全局传经纬度
+            mLatitude=location.getLatitude();//**
+            mLongtitude=location.getLongitude();//**
 //            StringBuffer currentPosition = new StringBuffer();
 //            currentPosition.append("纬度：").append(location.getLatitude()).append("\n");
 //            currentPosition.append("经线：").append(location.getLongitude()).append("\n");
