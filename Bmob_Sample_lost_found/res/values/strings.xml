@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bmob_Sample_lost_found</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="lost">Lost</string>
+    <string name="found">Found</string>
+    <string name="message_search_hint">搜索&#8230;</string>
+    
+    <string name="list_no_data_lost">暂时还未有失物信息</string>
+    <string name="list_no_data_found">暂时还未有招领信息</string>
+    
+    <string name="title_hint">标题</string>
+    <string name="describe_hint">描述</string>
+    <string name="photo_hint">手机</string>
+    
+    <string name="progress_loading">正在获取数据..</string>
+</resources>

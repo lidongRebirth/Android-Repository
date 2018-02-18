@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Spinner spinner;
+    private Spinner spinner;//下拉框
 
     private GridView detailCource;
 

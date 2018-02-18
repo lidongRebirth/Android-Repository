@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_add_top_bar" />
+
+    <EditText 
+        android:id="@+id/edit_title"
+        android:paddingLeft="10dp"
+        android:hint="@string/title_hint"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_edit_height"
+        android:layout_margin="10dp"
+        android:background="@drawable/input"
+        />
+
+    <EditText 
+        android:id="@+id/edit_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_edit_height"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:hint="@string/photo_hint"
+        android:background="@drawable/input"
+        />
+
+    <EditText 
+        android:id="@+id/edit_describe"
+        android:hint="@string/describe_hint"
+        android:background="@drawable/input"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:minLines="4"
+        />
+</LinearLayout>

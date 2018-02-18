@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ac_background">#f6f5f5</color>
+    <color name="ac_bottom_bar">#3c3c3c</color>
+    <color name="ac_bg_side_nav_actions">#252932</color>
+    <color name="text_navigation_title">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="bg_comment_list_item">#f6f5f5</color>
+    <color name="bg_comment_list_item_highlight">#ffffff</color>
+    <color name="text_gray">#969696</color>
+    <color name="bg_exhibition_desc">#f3f2ed</color>
+    <color name="guide_color">#898989</color>
+
+    <!-- V2.0 -->
+    <color name="base_actionbar_bg">#eb4e3d</color>
+    <color name="base_action_bar_title_color">#ffffff</color>
+    <color name="base_tab_indicator_text_color">#f82c22</color>
+    <color name="base_menu_left_bg">#393c44</color>
+    <color name="pull_refresh_textview">#000000</color>
+    <color name="base_color_text_black">#3e3e39</color>
+    <color name="base_color_text_gray">#898989</color>
+    <color name="home_item_color_bg">#f4f6f6</color>
+    <color name="base_bg">#f4f6f6</color>
+    <color name="green">#5cbe6c</color>
+    <!-- zxing -->
+    <color name="result_view">#b0000000</color>
+    <color name="color_half_transparent">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="color_transparent_bg">#80000000</color>
+    <color name="color_transparent_bg1">#e0000000</color>
+    <!-- emot -->
+    <color name="msg_emote_divider">#ffa1a1a1</color>
+    <!-- trend -->
+    <color name="trend_bottom_bg">#f7f7f7</color>
+
+</resources>
