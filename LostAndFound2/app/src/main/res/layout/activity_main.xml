@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f6f6"
+    android:orientation="vertical"
+    tools:context="com.jikexueyuan.com.lostandfound2.MainActivity">
+
+    <include layout="@layout/include_action_bar" />
+    <ListView
+        android:id="@+id/list_lost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

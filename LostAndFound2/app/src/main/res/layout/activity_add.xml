@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_action_bar2" />
+
+    <EditText
+        android:id="@+id/edit_title"
+        android:paddingLeft="10dp"
+        android:hint="标题"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dip"
+        android:layout_margin="10dp"
+        android:background="@drawable/input"
+        />
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dip"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:hint="手机号码"
+        android:background="@drawable/input"
+        />
+
+    <EditText
+        android:id="@+id/edit_describe"
+        android:hint="描述"
+        android:background="@drawable/input"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:minLines="4"
+        />
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提交"/>
+</LinearLayout>
