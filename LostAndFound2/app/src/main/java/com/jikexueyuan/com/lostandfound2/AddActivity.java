@@ -1,6 +1,5 @@
 package com.jikexueyuan.com.lostandfound2;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +13,6 @@ import cn.bmob.v3.listener.SaveListener;
 public class AddActivity extends AppCompatActivity {
     Button btn_submit,btn_back;
     EditText edit_title,edit_phone,edit_describe;
-
-
 
 
     @Override
@@ -37,11 +34,10 @@ public class AddActivity extends AppCompatActivity {
                 f.setTitle(edit_title.getText().toString());
                 f.setPhone(edit_phone.getText().toString());
                 f.save(new  SaveListener<String>() {
-
                  @Override
                 public void done(String objectId, BmobException e) {
                 if(e==null){
-                    Toast.makeText(getApplication(),"success",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(),"提交成功",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getApplication(),e.getMessage(),Toast.LENGTH_SHORT).show();
                 }

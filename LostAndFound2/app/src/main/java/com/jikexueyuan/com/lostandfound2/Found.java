@@ -11,6 +11,14 @@ public class Found extends BmobObject{
     private String title;//标题
     private String describe;//描述
     private String phone;//联系手机
+    public Found(){}
+
+    public Found(String title,String describe,String phone){
+        this.title=title;
+        this.describe=describe;
+        this.phone=phone;
+    }
+
     public String getTitle() {
         return title;
     }
