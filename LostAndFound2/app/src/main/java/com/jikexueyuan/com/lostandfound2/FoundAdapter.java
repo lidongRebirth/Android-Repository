@@ -15,6 +15,8 @@ import java.util.List;
  */
 
 public class FoundAdapter extends ArrayAdapter<Found> {
+
+
     private int resourceId;
 
 
@@ -24,7 +26,7 @@ public class FoundAdapter extends ArrayAdapter<Found> {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent){//在每个子项被滚到屏幕内的时候被调用
-        Found found=getItem(position);//获取当前的store实例
+        Found found=getItem(position);//获取当前的Found实例
         View view;//其实就是一个布局
         ViewHolder viewHolder;
         if(convertView==null){
@@ -33,6 +35,7 @@ public class FoundAdapter extends ArrayAdapter<Found> {
             viewHolder.title=(TextView)view.findViewById(R.id.tv_title);
             viewHolder.describe=(TextView)view.findViewById(R.id.tv_describe);
             viewHolder.phone=(TextView)view.findViewById(R.id.tv_phone);
+            viewHolder.time=(TextView)view.findViewById(R.id.tv_time);
             view.setTag(viewHolder);//将ViewHolder存储在View
 
         }else {//convertView 为已缓存的布局，若其不为空，则直接使用
@@ -42,6 +45,7 @@ public class FoundAdapter extends ArrayAdapter<Found> {
         viewHolder.title.setText(found.getTitle());
         viewHolder.describe.setText(found.getDescribe());
         viewHolder.phone.setText(found.getPhone());
+        viewHolder.time.setText(found.getTime());//此处不能用found.getCreatedAt(),因为此时适配器传来的是一个found类型数组，并不能再次联网查询
 
 
         return  view;
@@ -50,5 +54,6 @@ public class FoundAdapter extends ArrayAdapter<Found> {
         TextView title;
         TextView describe;
         TextView phone;
+        TextView time;
     }
 }

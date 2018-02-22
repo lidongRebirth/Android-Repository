@@ -8,9 +8,18 @@
     tools:context="com.jikexueyuan.com.lostandfound2.MainActivity">
 
     <include layout="@layout/include_action_bar" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swip_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
 
 </LinearLayout>

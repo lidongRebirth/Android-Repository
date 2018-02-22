@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+
+    <TextView
+        android:id="@+id/tv_title2"
+        android:paddingLeft="10dp"
+        android:hint="标题"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dip"
+        android:layout_margin="10dp"
+        android:background="@drawable/input"
+        />
+
+    <TextView
+        android:id="@+id/tv_phone2"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dip"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:hint="手机号码"
+        android:background="@drawable/input"
+        />
+
+    <TextView
+        android:id="@+id/tv_describe2"
+        android:hint="描述"
+        android:background="@drawable/input"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:minLines="4"
+        android:layout_weight="0.48" />
+    <TextView
+        android:id="@+id/tv_time2"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dip"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:hint="时间"
+        android:background="@drawable/input"
+        />
+
+</LinearLayout>

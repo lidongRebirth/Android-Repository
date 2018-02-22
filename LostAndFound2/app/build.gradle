@@ -26,13 +26,14 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
     //3.5.5：请务必查看下面注释[1]
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+    
+    //添加recyclerview库依赖上边的 appcompat后面怎么写这个版本就怎么写
+compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'cn.bmob.android:bmob-sdk:3.5.5'
-
+    compile 'com.android.support:recyclerview-v7:26.+'
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:recyclerview-v7:26.+'//添加recyclerview库依赖上边的 appcompat后面怎么写这个版本就怎么写
 }
