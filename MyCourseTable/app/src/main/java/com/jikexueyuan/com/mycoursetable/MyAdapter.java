@@ -44,7 +44,7 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {//通过缓存convertView,这种利用缓存contentView的方式可以判断如果缓存中不存在View才创建View，如果已经存在可以利用缓存中的View，提升了性能
         if( convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.grib_item, null);
         }
