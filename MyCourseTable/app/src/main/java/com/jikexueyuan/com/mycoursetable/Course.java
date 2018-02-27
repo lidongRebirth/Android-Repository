@@ -9,9 +9,18 @@ import cn.bmob.v3.datatype.BmobDate;
 
 public class Course extends BmobObject {
     private Integer course_id;
+    private String course_name;
+    private String course_week;
+
+
+
+    private String course_site;
     private BmobDate start_time;
     private BmobDate end_time;
-    private String course_name;
+
+
+
+
 
     public Integer getCourse_id() {
         return course_id;
@@ -44,10 +53,22 @@ public class Course extends BmobObject {
     public void setCourse_name(String course_name) {
         this.course_name = course_name;
     }
+    public String getCourse_week() {
+        return course_week;
+    }
+
+    public void setCourse_week(String course_week) {
+        this.course_week = course_week;
+    }
 
 
+    public String getCourse_site() {
+        return course_site;
+    }
 
-
+    public void setCourse_site(String course_site) {
+        this.course_site = course_site;
+    }
 
 
 }
