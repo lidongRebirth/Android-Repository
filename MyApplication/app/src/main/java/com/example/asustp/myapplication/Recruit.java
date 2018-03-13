@@ -8,6 +8,13 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+
+/**
+ *  招聘功能
+ *
+ *
+ */
+
 public class Recruit extends AppCompatActivity {
 
     private WebView recruitWeb;
