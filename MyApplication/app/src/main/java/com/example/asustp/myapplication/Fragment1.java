@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.lostandfound.LostActivity;
+
 /**
  * Created by asus tp on 2017/12/14.
  */
@@ -52,10 +54,11 @@ public class Fragment1 extends Fragment {
         });
 //        Toast.makeText(getContext(),"1:"+ID,Toast.LENGTH_SHORT).show();//测试是否从Activity中传来了数据
 
-        lostBtn.setOnClickListener(new View.OnClickListener() {
+        lostBtn.setOnClickListener(new View.OnClickListener() {//失物招领功能
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(getActivity(), LostActivity.class);
+                startActivity(intent);
             }
         });
 

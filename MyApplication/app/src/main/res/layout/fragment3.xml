@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--android:layout_weight="1        加上此才会在主页面切换这个视图时还将按钮显示出来"-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment3"
+    android:layout_weight="1"
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"

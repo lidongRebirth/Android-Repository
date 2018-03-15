@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="红色钱包"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_describe"
+        android:layout_marginTop="10dp"
+        android:text="周三早上丢失了红色钱包，在食堂二楼"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title" 
+        android:minLines="1"
+        android:maxLines="2"
+        android:textSize="16sp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="还未更改"
+        android:textSize="12sp"
+        android:layout_below="@id/tv_describe" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="3dp"
+        android:textSize="12sp"
+        android:paddingBottom="3dp"
+        android:drawablePadding="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_describe"
+        android:text="138024249542"
+        android:drawableLeft="@drawable/one_icon_photo"
+        android:background="#5cbe6c"
+        >
+    </TextView>
+
+</RelativeLayout>

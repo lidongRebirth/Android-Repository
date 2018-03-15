@@ -74,7 +74,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
                 <ImageButton
-                    android:id="@+id/kebiao"
+                    android:id="@+id/course_table"
                     android:src="@drawable/internet"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
@@ -97,7 +97,7 @@
                 android:orientation="vertical"
                 >
                 <ImageButton
-                    android:id="@+id/chengji"
+                    android:id="@+id/grade_table"
                     android:src="@drawable/internet"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"

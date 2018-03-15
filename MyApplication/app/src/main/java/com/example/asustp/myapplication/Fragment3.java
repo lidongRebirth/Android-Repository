@@ -1,6 +1,5 @@
 package com.example.asustp.myapplication;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,11 +28,11 @@ public class Fragment3 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                SharedPreferences.Editor editor = sp.edit();//用于取消自动登录的选项
-                editor.putBoolean("AUTO_ISCHECK", false);
-                editor.commit();//一定要提交
-                Intent intent=new Intent(getActivity(),LoginActivity.class);
-                startActivity(intent);
+//                SharedPreferences.Editor editor = sp.edit();//用于取消自动登录的选项
+//                editor.putBoolean("AUTO_ISCHECK", false);
+//                editor.commit();//一定要提交
+//                Intent intent=new Intent(getActivity(),LoginActivity.class);
+//                startActivity(intent);
             }
 
         });
