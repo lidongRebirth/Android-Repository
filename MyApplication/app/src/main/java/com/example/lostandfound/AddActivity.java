@@ -1,5 +1,6 @@
 package com.example.lostandfound;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -10,15 +11,24 @@ import android.widget.Toast;
 import com.example.asustp.myapplication.R;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
+/**
+ * 添加新的失物招领
+ *
+ */
 
 public class AddActivity extends AppCompatActivity {
-    private String id="20144138169";
+    private String ID;
     private Button btn_submit,btn_back;
     private EditText edit_title,edit_phone,edit_describe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.one_activity_add);
+        Intent intent = getIntent();          //获取从LostActivity中传来的用户ID
+        ID = intent.getStringExtra("ID");
+
+
+
         btn_submit=(Button)findViewById(R.id.btn_submit);
         btn_back=(Button)findViewById(R.id.btn_back2);
         edit_title=(EditText)findViewById(R.id.edit_title);
@@ -37,7 +47,7 @@ public class AddActivity extends AppCompatActivity {
                 {
                     Found f =new Found();
                     //加一个ID
-                    f.setID(id);
+                    f.setID(ID);
                     f.setDescribe(edit_describe.getText().toString());
                     f.setTitle(edit_title.getText().toString());
                     f.setPhone(edit_phone.getText().toString());

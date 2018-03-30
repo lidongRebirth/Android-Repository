@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/notice_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="紧急通知"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/notice_content"
+        android:layout_marginTop="10dp"
+        android:text="周五放假"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minLines="1"
+        android:maxLines="2"
+        android:textSize="16sp">
+    </TextView>
+    <TextView
+        android:id="@+id/notice_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="right"
+        android:paddingRight="5dp"
+        android:text="还未更改"
+        android:textSize="12sp">
+    </TextView>
+
+</LinearLayout>

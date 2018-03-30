@@ -29,6 +29,7 @@ public class GradeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.three_grade_activity_main);
+        getSupportActionBar().setTitle("成绩表");
         Bmob.initialize(this, "12a244a082bdc4511edeaf7f98a79c56");//Bmob初始化
         listview = (ListView) findViewById(R.id.grade_list_view);
         initGrade(id);
@@ -49,7 +50,7 @@ public class GradeActivity extends AppCompatActivity {
 //                    Toast.makeText(getApplicationContext(), mGradeList.get(0).getCourse_name(), Toast.LENGTH_SHORT).show();//测试是否获得到了数据
                     adapter = new Grade_adapter(GradeActivity.this, R.layout.three_grade_item_list, mGradeList);//建立适配器
                     listview.setAdapter(adapter);
-//                    text=mGradeList.get(0).getCourse_name(); 测试 此处还是不能直接进行给成员变量赋值，因为在UI线程中用成员变量的时候可能此值还未传过去
+//                    text_button=mGradeList.get(0).getCourse_name(); 测试 此处还是不能直接进行给成员变量赋值，因为在UI线程中用成员变量的时候可能此值还未传过去
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "获取失败"+e.getMessage(), Toast.LENGTH_SHORT).show();

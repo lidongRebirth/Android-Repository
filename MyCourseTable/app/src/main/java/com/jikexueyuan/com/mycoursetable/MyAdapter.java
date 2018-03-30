@@ -46,7 +46,7 @@ public class MyAdapter extends BaseAdapter {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public View getView(int position, View convertView, ViewGroup parent) {//通过缓存convertView,这种利用缓存contentView的方式可以判断如果缓存中不存在View才创建View，如果已经存在可以利用缓存中的View，提升了性能
         if( convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.grib_item, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.two_grib_item, null);
         }
         TextView textView = (TextView)convertView.findViewById(R.id.text);
         //如果有课,那么添加数据
@@ -57,28 +57,28 @@ public class MyAdapter extends BaseAdapter {
             int rand = position % 7;
             switch( rand ) {
                 case 0:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.grid_item_bg));//后面放的为背景颜色的设置
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_grid_item_bg));//后面放的为背景颜色的设置
                     break;
                 case 1:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.bg_12));
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_bg_12));
                     break;
                 case 2:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.bg_13));
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_bg_13));
                     break;
                 case 3:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.bg_14));
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_bg_14));
                     break;
                 case 4:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.bg_15));
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_bg_15));
                     break;
                 case 5:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.bg_16));
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_bg_16));
                     break;
                 case 6:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.bg_17));
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_bg_17));
                     break;
                 case 7:
-                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.bg_18));
+                    textView.setBackground(mContext.getResources().getDrawable(R.drawable.two_bg_18));
                     break;
             }
         }

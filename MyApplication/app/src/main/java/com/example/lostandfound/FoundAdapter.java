@@ -37,6 +37,7 @@ public class FoundAdapter extends ArrayAdapter<Found> {
             viewHolder.describe=(TextView)view.findViewById(R.id.tv_describe);
             viewHolder.phone=(TextView)view.findViewById(R.id.tv_phone);
             viewHolder.time=(TextView)view.findViewById(R.id.tv_time);
+
             view.setTag(viewHolder);//将ViewHolder存储在View
 
         }else {//convertView 为已缓存的布局，若其不为空，则直接使用
@@ -47,7 +48,7 @@ public class FoundAdapter extends ArrayAdapter<Found> {
         viewHolder.describe.setText(found.getDescribe());
         viewHolder.phone.setText(found.getPhone());
         viewHolder.time.setText(found.getTime());//此处不能用found.getCreatedAt(),因为此时适配器传来的是一个found类型数组，并不能再次联网查询
-
+        viewHolder.objectID=found.gettheObjectId();
 
         return  view;
     }
@@ -56,5 +57,6 @@ public class FoundAdapter extends ArrayAdapter<Found> {
         TextView describe;
         TextView phone;
         TextView time;
+        String objectID;
     }
 }

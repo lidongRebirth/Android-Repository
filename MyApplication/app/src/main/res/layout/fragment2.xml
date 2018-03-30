@@ -1,101 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_weight="1"
-    android:id="@+id/fragment2">
+    android:id="@+id/text">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="212dp"
+        android:background="@drawable/hbu_back"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.example.userinfo.CircleImageView
+            android:id="@+id/image_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/icon"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:id="@+id/changeicon"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
             android:layout_marginTop="20dp"
-            android:text="学号:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="20dp" />
-        <TextView
-            android:id="@+id/xuehao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="此处来从xml文件中获取学号"
-            android:textColor="@android:color/background_dark"
-            android:textSize="20dp" />
+            android:background="@drawable/button_bg"
+            android:gravity="center"
+            android:text="更改头像"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="12.0dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/acount"/>
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_account"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="0.01"
-            android:text="密码:"
+            android:layout_margin="15dp"
+            android:textSize="20dp"
             android:textColor="@android:color/background_dark"
-            android:textSize="20dp" />
-
+            android:gravity="center_vertical"
+            android:text="83354552"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:alpha="0.5"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="12.0dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/password"/>
         <EditText
-            android:id="@+id/password"
-            android:layout_width="wrap_content"
+            android:id="@+id/edit_password"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"
-
+            android:layout_margin="15dp"
+            android:textSize="20.0dp"
+            android:gravity="center_vertical"
+            android:text="此处填入密码"
+            android:textColor="@android:color/background_dark"
             android:background="@null"
             android:focusable="false"
             android:inputType="textPassword"
-            android:text="从xml文件中获取密码"
-            android:textColor="@android:color/background_dark"
-            android:textSize="20dp" />
-
-        <ImageButton
-            android:id="@+id/showpassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="20dp"
-
-            android:background="@null"
-            android:src="@drawable/showpassword" />
-
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/image_show_password"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="12dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/show_password"/>
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:alpha="0.5" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <Button
-            android:id="@+id/changepass"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="12.0dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/sign"/>
+        <EditText
+            android:id="@+id/edit_sign"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="修改密码"
+            android:gravity="center_vertical"
             android:layout_weight="1"
-            />
-
-        <Button
-            android:id="@+id/changeid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="切换帐号" />
+            android:layout_margin="15dp"
+            android:textSize="20.0dp"
+            android:text="此处填入个性签名"
+            android:textColor="@android:color/background_dark"
+            android:background="@null"
+            android:focusable="false"
+            android:lines="3"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/makesurechange"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="确认更改"
-        android:visibility="gone"/>
-
-
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/pass_sign_btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:id="@+id/change_passbtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_bg"
+                android:text="修改密码"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+            <Button
+                android:id="@+id/change_signbtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_bg"
+                android:text="修改签名"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/makesurechange"
+            android:text="确认更改"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_bg"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+    </LinearLayout>
 </LinearLayout>

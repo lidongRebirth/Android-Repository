@@ -1,9 +1,9 @@
 package com.example.lostandfound;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,6 +20,10 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
+
+/*
+* 失物招领主页面
+* */
 public class LostActivity extends AppCompatActivity {
 
     private Button btn_add,btn_back;
@@ -27,6 +31,7 @@ public class LostActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefresh;
     private ListView listview;
     private FoundAdapter adapter;
+    private String ID;
 
 
     @Override
@@ -35,6 +40,8 @@ public class LostActivity extends AppCompatActivity {
         setContentView(R.layout.one_activity_lost_main);
         Bmob.initialize(this, "12a244a082bdc4511edeaf7f98a79c56");//Bmob初始化
 
+        Intent intent = getIntent();          //获取从MainActivity中传来的用户ID
+        ID = intent.getStringExtra("ID");
 
         btn_add= (Button) findViewById(R.id.btn_add);
         btn_back=(Button)findViewById(R.id.btn_back);
@@ -45,6 +52,7 @@ public class LostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LostActivity.this,AddActivity.class);//具体上线时加上传过去ID  以备删除使用，删除时可以巧妙的在我的那里进行删除
+                intent.putExtra("ID",ID);
                 startActivity(intent);
             }
         });
@@ -63,9 +71,9 @@ public class LostActivity extends AppCompatActivity {
                     @Override
                     public void done(List<Found> list, BmobException e) {
                         if(e==null){//没有错误
-                            Toast.makeText(getApplicationContext(), "获取成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "刷新成功", Toast.LENGTH_SHORT).show();
                             for(int i=0;i<list.size();i++){
-                                Found mfound=new Found(list.get(i).getID(),list.get(i).getTitle(),list.get(i).getDescribe(),list.get(i).getPhone(), list.get(i).getCreatedAt());
+                                Found mfound=new Found(list.get(i).getID(),list.get(i).getTitle(),list.get(i).getDescribe(),list.get(i).getPhone(), list.get(i).getCreatedAt(),list.get(i).getObjectId());
                                 mFoundList.add(mfound);
                             }
                             adapter = new FoundAdapter(LostActivity.this, R.layout.one_item_list, mFoundList);//建立适配器
@@ -106,7 +114,6 @@ public class LostActivity extends AppCompatActivity {
         });
 
 
-
     }
     /**
      * 查询全部失物信息queryLosts
@@ -124,7 +131,7 @@ public class LostActivity extends AppCompatActivity {
                 if(e==null){//没有错误
                     Toast.makeText(getApplicationContext(), "获取成功", Toast.LENGTH_SHORT).show();
                     for(int i=0;i<list.size();i++){
-                        Found mfound=new Found(list.get(i).getID(),list.get(i).getTitle(),list.get(i).getDescribe(),list.get(i).getPhone(), list.get(i).getCreatedAt());
+                        Found mfound=new Found(list.get(i).getID(),list.get(i).getTitle(),list.get(i).getDescribe(),list.get(i).getPhone(), list.get(i).getCreatedAt(),list.get(i).getObjectId());
                         mFoundList.add(mfound);
                     }
                     adapter = new FoundAdapter(LostActivity.this, R.layout.one_item_list, mFoundList);//建立适配器
@@ -137,10 +144,6 @@ public class LostActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-//
     }
 
 

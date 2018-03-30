@@ -14,6 +14,17 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 允许读取手机状态 用于创建BmobInstallation -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 以下为百度地图所需要的权限，与Bmob有些权限一样 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -22,6 +33,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- 百度所需要的 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="rKZi5F8Yd7oyIkF3ZC4pV9d5p9QWcj9X" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,14 +48,27 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".Recruit" />
-        <activity android:name="com.example.lostandfound.LostActivity"
-            android:theme="@style/AppTheme2"/>
-        <activity android:name="com.example.lostandfound.AddActivity"
-            android:theme="@style/AppTheme2"/>
+        <activity
+            android:name="com.example.lostandfound.LostActivity"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name="com.example.lostandfound.AddActivity"
+            android:theme="@style/AppTheme2" />
         <activity android:name="com.example.lostandfound.detailInfo" />
         <activity android:name="com.example.coursetable.CourseActivity" />
-        <activity android:name="com.example.gradetable.GradeActivity"/>
+        <activity android:name="com.example.gradetable.GradeActivity" />
+        <activity android:name="com.example.lostandfound.my_LostActivity" />
+        <activity android:name="com.example.lostandfound.mydetailInfo" />
+        <activity android:name="com.example.menulist.MenuActivity" />
+        <activity android:name="com.example.menulist.StoreActivity" />
+        <activity android:name="com.example.baidulbs.LBSActivity" />
 
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
+
+        <activity android:name="com.example.notice.NoticeActivity"></activity>
     </application>
 
 </manifest>

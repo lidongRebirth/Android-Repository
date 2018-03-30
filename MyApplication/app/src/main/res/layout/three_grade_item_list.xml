@@ -7,11 +7,19 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="测试大小"/>
     <TextView
         android:id="@+id/grade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="测试大小"/>
 
 </LinearLayout>

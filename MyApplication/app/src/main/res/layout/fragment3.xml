@@ -1,20 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--android:layout_weight="1        加上此才会在主页面切换这个视图时还将按钮显示出来"-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment3"
     android:layout_weight="1"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="此处显示更多信息"/>
-    <Button
-        android:id="@+id/back"
-        android:text="back"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+    android:id="@+id/fragment3"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 我的帖子 -->
+    <LinearLayout
+        style="@style/leba_bg_base_layout">
+        <LinearLayout
+            android:id="@+id/layout_postbar"
+            style="@style/leba_bg_base_layout">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12.0dip"
+                android:src="@drawable/postbar"/>
+            <TextView
+                android:textSize="20.0dip"
+                android:textColor="#ff333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12.0dip"
+                android:text="   我的帖子"
+                android:layout_weight="1.0" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12.0dip"
+                android:src="@drawable/text_jiantou2"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--  校园推送 -->
+    <LinearLayout
+        style="@style/leba_bg_base_layout">
+        <LinearLayout
+            android:id="@+id/layout_news"
+            style="@style/leba_bg_base_layout">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12.0dip"
+                android:src="@drawable/news"/>
+            <TextView
+                android:textSize="20.0dip"
+                android:textColor="#ff333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12.0dip"
+                android:text="   校园推送"
+                android:layout_weight="1.0" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12.0dip"
+                android:src="@drawable/text_jiantou2"/>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 检查更新 -->
+    <LinearLayout
+        style="@style/leba_bg_base_layout">
+        <LinearLayout
+            android:id="@+id/layout_update"
+            style="@style/leba_bg_base_layout">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12.0dip"
+                android:src="@drawable/update"/>
+            <TextView
+                android:textSize="20.0dip"
+                android:textColor="#ff333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12.0dip"
+                android:text="   检查更新"
+                android:layout_weight="1.0" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12.0dip"
+                android:src="@drawable/text_jiantou2"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- 退出登录 -->
+    <LinearLayout
+        style="@style/leba_bg_base_layout">
+        <LinearLayout
+            android:id="@+id/layout_exit"
+            style="@style/leba_bg_base_layout">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12.0dip"
+                android:src="@drawable/exit"/>
+            <TextView
+                android:textSize="20.0dip"
+                android:textColor="#ff333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12.0dip"
+                android:text="   退出登录"
+                android:layout_weight="1.0" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12.0dip"
+                android:src="@drawable/text_jiantou2"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

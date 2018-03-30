@@ -26,7 +26,7 @@ public class Recruit extends AppCompatActivity {
 
         recruitWeb=(WebView)findViewById(R.id.recruitWeb);
         recruitWeb.loadUrl("http://jycy.hbu.cn/index.php/gggs.html");
-
+//http://jycy.hbu.cn/index.php/gggs.html
         recruitWeb.setWebViewClient( new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -43,7 +43,7 @@ public class Recruit extends AppCompatActivity {
 
 
 
-// User settings
+    // User settings
 
         webSettings.setJavaScriptEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);

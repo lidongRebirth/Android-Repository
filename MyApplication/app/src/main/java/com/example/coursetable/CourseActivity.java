@@ -32,10 +32,11 @@ public class CourseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.two_coursetable_activity_main);
+        getSupportActionBar().setTitle("我的课表");
         Bmob.initialize(this, "12a244a082bdc4511edeaf7f98a79c56");//Bmob初始化
         detailCource = (GridView)findViewById(R.id.courceDetail);
-//        SimpleDateFormat   formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");//记得导入import java.text.SimpleDateFormat;
-//        SimpleDateFormat   formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd 08:00:00");//记得导入import java.text.SimpleDateFormat;
+//        SimpleDateFormat   formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");//记得导入import java.text_button.SimpleDateFormat;
+//        SimpleDateFormat   formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd 08:00:00");//记得导入import java.text_button.SimpleDateFormat;
 //        Date curDate =  new Date(System.currentTimeMillis());
         //获取当前时间
 //        String   str   =   formatter.format(curDate);
@@ -362,8 +363,8 @@ public class CourseActivity extends AppCompatActivity {
      */
     private void  my_init() {
 
-        SimpleDateFormat   formatter1   =   new   SimpleDateFormat   ("yyyy-MM-dd 21:35:00");//记得导入import java.text.SimpleDateFormat;
-        SimpleDateFormat   formatter2   =   new   SimpleDateFormat   ("yyyy-MM-dd 08:00:00");//记得导入import java.text.SimpleDateFormat;
+        SimpleDateFormat   formatter1   =   new   SimpleDateFormat   ("yyyy-MM-dd 21:35:00");//记得导入import java.text_button.SimpleDateFormat;
+        SimpleDateFormat   formatter2   =   new   SimpleDateFormat   ("yyyy-MM-dd 08:00:00");//记得导入import java.text_button.SimpleDateFormat;
         Date curDate =  new Date(System.currentTimeMillis());
         String str1=formatter1.format(curDate);//2018-02-25 21:35:00    用于查询当天所在周的课程
         String str2=formatter2.format(curDate);//2018-02-25 08:00:00
@@ -471,7 +472,7 @@ public class CourseActivity extends AppCompatActivity {
             switch (msg.what){//注意：case和if不同，每个case最好加上break,不然，会一个一个条件的进行判断
                 case 1:
 //                    monday=arry;  //此处在测试是否能直接对成员变量monday数组赋值
-//                    text=arry[0]; //!!!!为什么不能为成员变量赋值  日后了解一下如何在Handler 方法中对成员变量赋值
+//                    text_button=arry[0]; //!!!!为什么不能为成员变量赋值  日后了解一下如何在Handler 方法中对成员变量赋值
 //                   Toast.makeText(getApplicationContext(),"handler中"+monday[0],Toast.LENGTH_SHORT).show();//为空显示不出内容
 //                   Toast.makeText(getApplicationContext(),"handler中"+arry[0],Toast.LENGTH_SHORT).show();//可以显示内容，证明从异步查询Handler
                     my_monday=arry;
@@ -545,7 +546,7 @@ public class CourseActivity extends AppCompatActivity {
      * 时间字符串互相转化的测试
      */
     private void trans_time(){
-//        SimpleDateFormat   formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");//记得导入import java.text.SimpleDateFormat;
+//        SimpleDateFormat   formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");//记得导入import java.text_button.SimpleDateFormat;
 //        //获取当前时间
 //        Date curDate =  new Date(System.currentTimeMillis());
 //        // 获取日期实例
@@ -555,8 +556,8 @@ public class CourseActivity extends AppCompatActivity {
 //        int hour=calendar.get(calendar.HOUR_OF_DAY);//时
 //        int minute=calendar.get(calendar.MINUTE);//分
 //        Toast.makeText(getApplicationContext(),"时："+hour+"分："+minute,Toast.LENGTH_SHORT).show();
-        SimpleDateFormat   formatter1   =   new   SimpleDateFormat   ("yyyy-MM-dd 21:35:00");//记得导入import java.text.SimpleDateFormat;
-        SimpleDateFormat   formatter2   =   new   SimpleDateFormat   ("yyyy-MM-dd 08:00:00");//记得导入import java.text.SimpleDateFormat;
+        SimpleDateFormat   formatter1   =   new   SimpleDateFormat   ("yyyy-MM-dd 21:35:00");//记得导入import java.text_button.SimpleDateFormat;
+        SimpleDateFormat   formatter2   =   new   SimpleDateFormat   ("yyyy-MM-dd 08:00:00");//记得导入import java.text_button.SimpleDateFormat;
 
         Date curDate =  new Date(System.currentTimeMillis());
         //获取当前时间

@@ -76,6 +76,7 @@ public class LoginActivity extends Activity {
                             //跳转界面
                             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                             intent.putExtra("ID",userNameValue);
+                            intent.putExtra("objectID",bmobUser.getObjectId());
                             startActivity(intent);
 
                         }else{
@@ -106,6 +107,7 @@ public class LoginActivity extends Activity {
                             //跳转界面
                             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                             intent.putExtra("ID",userNameValue);
+                            intent.putExtra("objectID",bmobUser.getObjectId());
                             startActivity(intent);
                             //登录成功和记住密码框为选中状态才保存用户信息
                             if (rem_pw.isChecked()) {
@@ -129,12 +131,12 @@ public class LoginActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (rem_pw.isChecked()) {
 //                    Toast.makeText(getApplicationContext(),"已选中记住用户名密码",Toast.LENGTH_SHORT).show();       //测试成功
-//                    Log.d("text", "记住密码已选中: ");
+//                    Log.d("text_button", "记住密码已选中: ");
                     sp.edit().putBoolean("ISCHECK", true).commit();
 
                 }else {
 //                    Toast.makeText(getApplicationContext(),"未选中记住用户名密码",Toast.LENGTH_SHORT).show();       //测试成功
-//                    Log.d("text", "记住密码没有选中: ");
+//                    Log.d("text_button", "记住密码没有选中: ");
                     sp.edit().putBoolean("ISCHECK", false).commit();
 
                 }

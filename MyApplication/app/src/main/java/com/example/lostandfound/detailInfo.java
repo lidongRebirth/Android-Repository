@@ -18,7 +18,7 @@ public class detailInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.one_activity_detail_info);
-
+        getSupportActionBar().setTitle("");//详细帖子
         tv_title=(TextView)findViewById(R.id.tv_title2);
         tv_time=(TextView)findViewById(R.id.tv_time2);
         tv_phone=(TextView)findViewById(R.id.tv_phone2);

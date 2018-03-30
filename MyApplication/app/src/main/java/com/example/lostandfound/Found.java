@@ -10,8 +10,7 @@ import cn.bmob.v3.BmobObject;
 public class Found extends BmobObject{
 
 
-
-
+    private String objectID;
     private String time;
     private String ID;
     private String title;//标题
@@ -25,12 +24,13 @@ public class Found extends BmobObject{
         this.describe=describe;
         this.phone=phone;
     }
-    public Found(String ID,String title,String describe,String phone,String time1){
+    public Found(String ID,String title,String describe,String phone,String time1,String objectID1){
         this.ID=ID;
         this.title=title;
         this.describe=describe;
         this.phone=phone;
         this.time=time1;
+        this.objectID=objectID1;
     }
 
     public String getTitle() {
@@ -70,5 +70,9 @@ public class Found extends BmobObject{
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String gettheObjectId() {
+        return objectID;
     }
 }

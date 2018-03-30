@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.two_coursetable_activity_main);
         Bmob.initialize(this, "12a244a082bdc4511edeaf7f98a79c56");//Bmob初始化
         detailCource = (GridView)findViewById(R.id.courceDetail);
 //        SimpleDateFormat   formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");//记得导入import java.text.SimpleDateFormat;
