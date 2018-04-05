@@ -20,7 +20,7 @@
         android:id="@+id/main_tab"
         android:paddingTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="77dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal">
@@ -31,7 +31,7 @@
             android:button="@null"
             android:drawableTop="@drawable/radiobutton1"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:text="广场"
             android:textColor="@drawable/colorselect"
@@ -44,7 +44,7 @@
             android:button="@null"
             android:drawableTop="@drawable/radiobutton2"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:text="我"
             android:textColor="@drawable/colorselect" />
@@ -55,7 +55,7 @@
             android:button="@null"
             android:drawableTop="@drawable/radiobutton3"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:text="更多"
             android:textColor="@drawable/colorselect" />

@@ -518,15 +518,7 @@ public class CourseActivity extends AppCompatActivity {
                     adapter = new MyAdapter(getApplicationContext(), dataList1);
                     detailCource.setAdapter(adapter);
             }
-
-
-
-
-
-
         }
-
-
     };
 
     /**

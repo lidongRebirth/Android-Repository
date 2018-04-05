@@ -1,6 +1,8 @@
 package com.example.gradetable;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ public class Grade_adapter extends ArrayAdapter<select_course> {
         super(context,textViewResourceId, objects);
         resourceId=textViewResourceId;
     }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public View getView(int position, View convertView, ViewGroup parent){//在每个子项被滚到屏幕内的时候被调用
         select_course course=getItem(position);//获取当前的menu实例
@@ -38,6 +41,39 @@ public class Grade_adapter extends ArrayAdapter<select_course> {
         }
         viewHolder.courseName.setText(course.getCourse_name());
         viewHolder.grade.setText(course.getGrade().toString());//此处没有toString导致出错，还找不到原因很长时间
+
+        //变换颜色
+        int rand = position % 7;
+        switch( rand ) {
+            case 0:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_grid_item_bg));
+                break;
+            case 1:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_bg_12));
+                break;
+            case 2:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_bg_13));
+                break;
+            case 3:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_bg_14));
+                break;
+            case 4:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_bg_15));
+                break;
+            case 5:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_bg_16));
+                break;
+            case 6:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_bg_17));
+                break;
+            case 7:
+                view.setBackground(getContext().getResources().getDrawable(R.drawable.two_bg_18));
+                break;
+        }
+
+
+
+
         return  view;
     }
     class  ViewHolder{

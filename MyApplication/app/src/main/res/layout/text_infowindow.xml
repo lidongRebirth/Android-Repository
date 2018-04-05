@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="127dp"
+    android:background="#0000"
+    >
+
+    <LinearLayout
+        android:layout_width="209dp"
+        android:layout_height="127dp"
+        android:background="@drawable/notice_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/agent_name"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="11dp"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/agent_content"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="2dp"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="9dp"
+            android:background="#DFDFDF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/navigation_LL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="17dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="27dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/class_location" />
+
+                <TextView
+                    android:id="@+id/agent_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="地点"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="13dp"
+                android:layout_marginTop="5dp"
+                android:background="#DFDFDF" />
+
+            <LinearLayout
+                android:id="@+id/call_LL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="19dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="23dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tel" />
+
+                <TextView
+                    android:id="@+id/agent_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="电话"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 用来偏移inforwindow的位置-->
+    <TextView
+        android:layout_width="38dp"
+        android:layout_height="match_parent" />
+</LinearLayout>

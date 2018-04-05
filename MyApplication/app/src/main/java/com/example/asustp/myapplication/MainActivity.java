@@ -21,10 +21,12 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -38,6 +40,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.baidulbs.LBSActivity;
+import com.example.bannerview.BannerView;
 import com.example.coursetable.CourseActivity;
 import com.example.gradetable.GradeActivity;
 import com.example.lostandfound.LostActivity;
@@ -50,16 +53,23 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.push.BmobPush;
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobInstallation;
+import cn.bmob.v3.BmobInstallationManager;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.InstallationListener;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
+
+
 
 /*
 * 主页面，fragment1的页面，默认选择
@@ -75,6 +85,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences sp;
 
 
+    //滑动图片所需要的内容
+    private int[] imgs = {R.drawable.banner_image2,R.drawable.banner_image1,R.drawable.banner_image3,R.drawable.hbu_back};
+    private List<View> viewList;
+    BannerView bannerView;
 
 
     //六个功能按钮
@@ -128,14 +142,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // setContentView(R.layout.text_button);
         setContentView(R.layout.activity_main);//测试
         Bmob.initialize(this,"12a244a082bdc4511edeaf7f98a79c56");
+        //推送服务
+        BmobInstallationManager.getInstance().initialize(new InstallationListener<BmobInstallation>() {
+            @Override
+            public void done(BmobInstallation bmobInstallation, BmobException e) {
+                if (e == null) {
+                    Log.i("打印:",bmobInstallation.getObjectId() + "-" + bmobInstallation.getInstallationId());
+                    Toast.makeText(getApplication(),"ObjectId"+bmobInstallation.getObjectId() + "InstallationId" + bmobInstallation.getInstallationId(),Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Log.e("打印:",e.getMessage());
+                    Toast.makeText(getApplication(),"错误"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        // 启动推送服务
+        BmobPush.startWork(this);
+
 
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){//可以访问SD卡的动态权限的申请
             if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},0);
             }
         }
-
-
 
         sp = getSharedPreferences("userInfo", this.MODE_PRIVATE);//获取到sharePreferences
 
@@ -188,6 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //碎片填充容器
         //  replaceFragment(new Fragment1(ID));//刚上来就位于广场，所以先填充
+        imageload();//加载滑动图片    刚上来就位于广场，所以先填充
         select.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
@@ -198,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     view1.setVisibility(View.VISIBLE);
                     view2.setVisibility(View.GONE);
                     view3.setVisibility(View.GONE);
+                   // imageload();//加载滑动图片
 
                 }
                 if (btn2.getId() == i) {
@@ -645,6 +676,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        transaction.replace(R.id.fragmentcontain,fragment);                         //向容器内添加或替换碎片
 //        transaction.commit();
 //    }
+
+    private void imageload (){
+        viewList = new ArrayList<View>();
+        for (int i = 0; i < imgs.length; i++) {
+            ImageView image = new ImageView(this);
+            image.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            //设置显示格式
+            image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            image.setImageResource(imgs[i]);
+            viewList.add(image);
+        }
+        bannerView = (BannerView) findViewById(R.id.banner);
+        bannerView.startLoop(true);
+        bannerView.setViewList(viewList);
+    }
 
 
 }
