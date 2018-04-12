@@ -26,9 +26,10 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!--推送所需的权限-->
+    <!-- 推送所需的权限 -->
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -51,7 +52,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Recruit" />
         <activity
             android:name="com.example.lostandfound.LostActivity"
             android:theme="@style/AppTheme2" />
@@ -66,32 +66,33 @@
         <activity android:name="com.example.menulist.MenuActivity" />
         <activity android:name="com.example.menulist.StoreActivity" />
         <activity android:name="com.example.baidulbs.LBSActivity" />
-        <activity android:name="com.example.notice.NoticeActivity"/>
+        <activity android:name="com.example.notice.NoticeActivity" />
+        <activity android:name="com.example.recruit.Recruit"/>
 
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
-        <!--TODO 集成：1.2、添加推送所需要的服务和广播-->
+        <!-- TODO 集成：1.2、添加推送所需要的服务和广播 -->
         <service
-            android:label="PushService"
             android:name="cn.bmob.push.lib.service.PushService"
-            android:process=":bmobpush"
-            android:exported="true">
+            android:exported="true"
+            android:label="PushService"
+            android:process=":bmobpush">
             <intent-filter>
-                <action android:name="cn.bmob.push.lib.service.PushService"/>
+                <action android:name="cn.bmob.push.lib.service.PushService" />
             </intent-filter>
         </service>
 
         <!-- 用于进程保活 -->
         <service
             android:name="cn.bmob.push.lib.service.PushNotifyService"
-            android:process=":bmobpush" >
-        </service>
+            android:process=":bmobpush"></service>
 
-        <receiver android:name="cn.bmob.push.PushReceiver" >
+        <receiver android:name="cn.bmob.push.PushReceiver">
             <intent-filter>
+
                 <!-- 系统启动完成后会调用 -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <!-- 解锁完成后会调用 -->
@@ -101,18 +102,19 @@
             </intent-filter>
         </receiver>
 
-        <!-- 第3步中创建的消息接收器，在这里进行注册 !!!此处注册自己的接收器，并且必须配置MESSAFEaction-->
+        <!-- 第3步中创建的消息接收器，在这里进行注册 !!!此处注册自己的接收器，并且必须配置MESSAFEaction -->
         <receiver android:name="com.example.notificationpush.MyPushMessageReceiver">
-            <intent-filter >
-                <action android:name="cn.bmob.push.action.MESSAGE"/>
+            <intent-filter>
+                <action android:name="cn.bmob.push.action.MESSAGE" />
             </intent-filter>
         </receiver>
 
         <!-- 接收心跳和唤醒的广播，要和PushService运行在同个进程 -->
         <receiver
             android:name="cn.bmob.push.PushNotifyReceiver"
-            android:process=":bmobpush" >
+            android:process=":bmobpush">
             <intent-filter>
+
                 <!-- 接收心跳广播的action -->
                 <action android:name="cn.bmob.push.action.HEARTBEAT" />
                 <!-- 接收唤醒广播的action -->
@@ -120,7 +122,8 @@
             </intent-filter>
         </receiver>
 
-
+        <activity android:name="com.example.notificationpush.NotificationActivity"
+                  android:theme="@style/AppTheme.Translucent"/>
     </application>
 
 </manifest>

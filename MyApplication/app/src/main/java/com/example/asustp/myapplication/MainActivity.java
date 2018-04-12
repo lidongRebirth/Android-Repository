@@ -47,6 +47,7 @@ import com.example.lostandfound.LostActivity;
 import com.example.lostandfound.my_LostActivity;
 import com.example.menulist.StoreActivity;
 import com.example.notice.NoticeActivity;
+import com.example.recruit.Recruit;
 import com.example.userinfo._User;
 
 import java.io.File;
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void done(BmobInstallation bmobInstallation, BmobException e) {
                 if (e == null) {
                     Log.i("打印:",bmobInstallation.getObjectId() + "-" + bmobInstallation.getInstallationId());
-                    Toast.makeText(getApplication(),"ObjectId"+bmobInstallation.getObjectId() + "InstallationId" + bmobInstallation.getInstallationId(),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplication(),"ObjectId"+bmobInstallation.getObjectId() + "InstallationId" + bmobInstallation.getInstallationId(),Toast.LENGTH_SHORT).show();
 
                 } else {
                     Log.e("打印:",e.getMessage());

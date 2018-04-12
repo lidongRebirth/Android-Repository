@@ -107,14 +107,12 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
         mBtnNext = (Button) findViewById(R.id.next);
         mBtnPre.setVisibility(View.INVISIBLE);
         mBtnNext.setVisibility(View.INVISIBLE);
-        mSearch = PoiSearch.newInstance();
-        mSearch.setOnGetPoiSearchResultListener(this);
+        mSearch = PoiSearch.newInstance();                  //创建POI检索实例
+        mSearch.setOnGetPoiSearchResultListener(this);      //设置POI检索监听者
         mBusLineSearch = BusLineSearch.newInstance();
         mBusLineSearch.setOnGetBusLineSearchResultListener(this);
         busLineIDList = new ArrayList<String>();
         overlay = new BusLineOverlay(baiduMap);
-      //  baiduMap.setOnMarkerClickListener(overlay);
-////
 
         List<String> permissionList=new ArrayList<>();//进行运行时权限 三个权限的申请
         if(ContextCompat.checkSelfPermission(LBSActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
@@ -140,30 +138,6 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
             @Override
             public void onMapClick(LatLng latLng) {
                baiduMap.hideInfoWindow();//用于隐藏infoWindow窗体
-//               Toast.makeText(getApplicationContext(),"经度："+latLng.latitude+"纬度"+latLng.longitude,Toast.LENGTH_LONG).show();
-//                //定义Maker坐标点
-//                LatLng point = new LatLng(latLng.latitude,latLng.longitude);
-//                //构建Marker图标
-//                BitmapDescriptor bitmap = BitmapDescriptorFactory
-//                        .fromResource(R.drawable.mark);
-//                //构建MarkerOption，用于在地图上添加Marker
-//                OverlayOptions option = new MarkerOptions()
-//                        .position(point)
-//                        .icon(bitmap)
-//                        .title("管理学院");
-//
-//                //在地图上添加Marker，并显示
-//                baiduMap.addOverlay(option);
-//
-//                LayoutInflater inflater = getLayoutInflater();
-//                View view = inflater.inflate(R.layout.text_infowindow, null);
-//                //定义用于显示该InfoWindow的坐标点
-//                LatLng pt = new LatLng(latLng.latitude, latLng.longitude);
-//                //创建InfoWindow , 传入 view， 地理坐标， y 轴偏移量
-//                InfoWindow mInfoWindow = new InfoWindow(view, pt, -47);
-//
-//                //显示InfoWindow
-//                baiduMap.showInfoWindow(mInfoWindow);
             }
             @Override
             public boolean onMapPoiClick(MapPoi mapPoi) {
@@ -188,14 +162,6 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
                     agent_content.setText(marker.getExtraInfo().getString("content"));
                     agent_location.setText(marker.getExtraInfo().getString("location"));
                     agent_call.setText(marker.getExtraInfo().getString("tel"));
-//                    agent_call.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            Intent telIntent=new Intent(Intent.ACTION_DIAL);
-//                            telIntent.setData(Uri.parse("tel:"+agent_call.getText()+""));
-//                            startActivity(telIntent);
-//                        }
-//                    });
                     layout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -237,7 +203,10 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
     private void navigateTo(BDLocation location){
         if(isFirstLocate){
             LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());       //存放经纬度
-            MapStatus.Builder builder=new MapStatus.Builder();                  //以下部分地理信息的存储和地图的更新是和课本不一样的地方
+            //以下部分地理信息的存储和地图的更新是和课本不一样的地方
+            MapStatus.Builder builder=new MapStatus.Builder();      //建立地图状态构造器
+
+
             builder.target(latLng).zoom(16f);
             baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
             isFirstLocate=false;
@@ -247,23 +216,6 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
         locationBuilder.longitude(location.getLongitude());
         MyLocationData locationData=locationBuilder.build();//build方法用来生成一个MyLocationData实例
         baiduMap.setMyLocationData(locationData);
-
-
-//        //写一个函数来展现固定点的mark
-//        //定义Maker坐标点
-//        LatLng point = new LatLng(location.getLatitude()+1,location.getLongitude()+1);
-//        //构建Marker图标
-//        BitmapDescriptor bitmap = BitmapDescriptorFactory
-//                .fromResource(R.drawable.mark);
-//        //构建MarkerOption，用于在地图上添加Marker
-//        OverlayOptions option = new MarkerOptions()
-//                .position(point)
-//                .icon(bitmap)
-//                .title("管理学院");
-//
-//        //在地图上添加Marker，并显示
-//        baiduMap.addOverlay(option);
-
     }
 
     private void initLocation(){         //动态定位，每隔5秒刷新定位
@@ -330,23 +282,6 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
             if(bdLocation.getLocType()==BDLocation.TypeGpsLocation||bdLocation.getLocType()==BDLocation.TypeNetWorkLocation){
                 navigateTo(bdLocation);
             }
-//            StringBuilder currentPosition =new StringBuilder();
-//            currentPosition.append("纬度：").append(bdLocation.getLatitude()).append("\n");
-//            currentPosition.append("经线：").append(bdLocation.getLongitude()).append("\n");
-//            currentPosition.append("国家：").append(bdLocation.getCountry()).append("\n");
-//            currentPosition.append("省：").append(bdLocation.getProvince()).append("\n");
-//            currentPosition.append("市：").append(bdLocation.getCity()).append("\n");
-//            currentPosition.append("区：").append(bdLocation.getDistrict()).append("\n");
-//            currentPosition.append("街道：").append(bdLocation.getStreet()).append("\n");
-//            currentPosition.append("定位方式：");
-//            if(bdLocation.getLocType()==BDLocation.TypeGpsLocation){
-//                currentPosition.append("GPS");
-//            }
-//            else if(bdLocation.getLocType()==BDLocation.TypeNetWorkLocation){
-//                currentPosition.append("网络");
-//            }
-//            positionText.setText(currentPosition);
-
         }
     }
 
@@ -396,8 +331,6 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
             @Override
             public void done(List<BMap> list, BmobException e) {
                 if(e==null){
-//                    //创建OverlayOptions的集合
-//                    List<OverlayOptions> options = new ArrayList<OverlayOptions>();
                     for(int i=0;i<list.size();i++){
                         LatLng point = new LatLng(Double.parseDouble(list.get(i).getLatitude()),Double.parseDouble(list.get(i).getLongitude()));  //C1-201    5074523
                         Bundle bundle=new Bundle();
@@ -440,7 +373,7 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
     //以下为公交线路检索
     /**
      * 发起检索
-     *
+     *此处是静态的onClick()的响应事件
      * @param v
      */
     public void searchButtonProcess(View v) {
@@ -451,8 +384,8 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
         EditText editCity = (EditText) findViewById(R.id.city);
         EditText editSearchKey = (EditText) findViewById(R.id.searchkey);
         // 发起poi检索，从得到所有poi中找到公交线路类型的poi，再使用该poi的uid进行公交详情搜索
-        mSearch.searchInCity((new PoiCitySearchOption()).city(
-                editCity.getText().toString())
+        mSearch.searchInCity((new PoiCitySearchOption())
+                .city(editCity.getText().toString())
                 .keyword(editSearchKey.getText().toString()));
     }
 
@@ -460,11 +393,10 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
         if (busLineIndex >= busLineIDList.size()) {
             busLineIndex = 0;
         }
-        if (busLineIndex >= 0 && busLineIndex < busLineIDList.size()
-                && busLineIDList.size() > 0) {
+        if (busLineIndex >= 0 && busLineIndex < busLineIDList.size() && busLineIDList.size() > 0) {
             mBusLineSearch.searchBusLine((new BusLineSearchOption()
-                    .city(((EditText) findViewById(R.id.city)).getText()
-                            .toString()).uid(busLineIDList.get(busLineIndex))));
+                    .city(((EditText) findViewById(R.id.city)).getText().toString())
+                    .uid(busLineIDList.get(busLineIndex))));
 
             busLineIndex++;
         }
@@ -477,9 +409,7 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
      * @param v
      */
     public void nodeClick(View v) {
-
-        if (nodeIndex < -1 || route == null
-                || nodeIndex >= route.getStations().size()) {
+        if (nodeIndex < -1 || route == null || nodeIndex >= route.getStations().size()) {//没有找到线路信息
             return;
         }
         TextView popupText = new TextView(this);
@@ -506,10 +436,8 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
         }
     }
 
-
-
-
-
+    //以下为POI检索监听者中的三个函数
+    //在POI检索结果中判断该POI类型是否为公交信息；
     @Override
     public void onGetPoiResult(PoiResult poiResult) {
         if (poiResult == null || poiResult.error != SearchResult.ERRORNO.NO_ERROR) {
@@ -534,10 +462,14 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
 
     }
 
-    @Override
+    @Override//没用到
     public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
 
     }
+
+
+
+
 
     @Override
     public void onGetBusLineResult(BusLineResult busLineResult) {
@@ -549,7 +481,7 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
         baiduMap.clear();
         route = busLineResult;
         nodeIndex = -1;
-        overlay.removeFromMap();
+        overlay.removeFromMap();//公交路线绘制对象
         overlay.setData(busLineResult);
         overlay.addToMap();
         overlay.zoomToSpan();
@@ -558,9 +490,4 @@ public class LBSActivity extends AppCompatActivity implements OnGetPoiSearchResu
         Toast.makeText(LBSActivity.this, busLineResult.getBusLineName(),
                 Toast.LENGTH_SHORT).show();
     }
-
-
-
-
-
 }

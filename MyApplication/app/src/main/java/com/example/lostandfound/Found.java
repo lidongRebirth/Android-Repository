@@ -10,7 +10,7 @@ import cn.bmob.v3.BmobObject;
 public class Found extends BmobObject{
 
 
-    private String objectID;
+    private String objectID;//因为update数据只能根据objectID来进行修改，所以此处加上是为了以后删除时使用
     private String time;
     private String ID;
     private String title;//标题

@@ -324,7 +324,7 @@ public class CourseActivity extends AppCompatActivity {
 
     }
     /**
-     * 查询一周的课程
+     * 查询一天的课程
      */
     private void  query_course(String bql, final int identify ){
         new BmobQuery<Course>().doSQLQuery(bql,new SQLQueryListener<Course>(){
@@ -366,7 +366,7 @@ public class CourseActivity extends AppCompatActivity {
         SimpleDateFormat   formatter1   =   new   SimpleDateFormat   ("yyyy-MM-dd 21:35:00");//记得导入import java.text_button.SimpleDateFormat;
         SimpleDateFormat   formatter2   =   new   SimpleDateFormat   ("yyyy-MM-dd 08:00:00");//记得导入import java.text_button.SimpleDateFormat;
         Date curDate =  new Date(System.currentTimeMillis());
-        String str1=formatter1.format(curDate);//2018-02-25 21:35:00    用于查询当天所在周的课程
+        String str1=formatter1.format(curDate);//2018-02-25 21:35:00    用于查询当天所在周一天的课程
         String str2=formatter2.format(curDate);//2018-02-25 08:00:00
 
         //Bmonb不支持连接查询  想办法解决 还未解决如何体现是谁选得课

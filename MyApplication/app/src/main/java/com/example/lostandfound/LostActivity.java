@@ -125,7 +125,6 @@ public class LostActivity extends AppCompatActivity {
         BmobQuery<Found> query = new BmobQuery<>();
         query.order("-createdAt");// 按照时间降序
         query.findObjects(new FindListener<Found>() {
-
             @Override
             public void done(List<Found> list, BmobException e) {
                 if(e==null){//没有错误
