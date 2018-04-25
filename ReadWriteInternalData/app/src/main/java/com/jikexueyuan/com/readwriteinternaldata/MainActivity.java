@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.readBtn).setOnClickListener(new View.OnClickListener() { //从内部存储文件中读取
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {//读取内部存储文件
                 try {
                     FileInputStream fileInputStream=openFileInput(filename);//用来直接读取应用程序内部的数据
                     InputStreamReader inputStreamReader=new InputStreamReader(fileInputStream,"UTF-8");
