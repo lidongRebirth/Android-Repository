@@ -6,3 +6,8 @@
 - fragment2.xml为我的布局，其内主要包含修改个人信息的功能，其他信息随后添加
 - fragment3.xml为更多的布局，....
 # `校园助手程序部分在MyApplication文件夹下`
+## 软件界面截图：
+### 主界面：
+[主界面]http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/dc295f18401ea32e803dcdb8c408154a.gif
+### 我的信息界面：
+### 更多界面：
