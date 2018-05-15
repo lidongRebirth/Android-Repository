@@ -9,8 +9,9 @@
 ## 软件界面截图：
 ### 1、主界面：
 ![](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/dc295f18401ea32e803dcdb8c408154a.gif)
-* 校园招聘  
-![](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/c15004fb405ef4278010e4fc0ded842b.gif)
+* 校园招聘  
+主要是用WebView控件来加载校园网站，并设置网页自适应大小，利用ProgressBar来显示加载进度
+![](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/c15004fb405ef4278010e4fc0ded842b.gif=100*200)
 
 ### 2、我的信息界面：
 ### 3、更多界面：
