@@ -39,6 +39,7 @@ LatLng pt = new LatLng(marker.getPosition().latitude,marker.getPosition().longit
 InfoWindow mInfoWindow = new InfoWindow(view, pt, -47);<br>
 //显示InfoWindow<br>
 baiduMap.showInfoWindow(mInfoWindow);<br>
+<br>
 公交信息的检索：<br>
 1发起POI检索，获取相应线路的UID；<br>
 //以城市内检索为例，详细方法请参考POI检索部分的相关介绍  <br>
