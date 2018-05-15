@@ -9,7 +9,7 @@
 ## 软件界面截图：
 ### 1、主界面：
 ![](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/dc295f18401ea32e803dcdb8c408154a.gif)
-* 校园招聘
+* 校园招聘  
 ![](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/c15004fb405ef4278010e4fc0ded842b.gif)
 
 ### 2、我的信息界面：
