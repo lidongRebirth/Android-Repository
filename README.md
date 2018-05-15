@@ -23,16 +23,16 @@
 电话外卖：（不显示请点击链接：http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/100f21ef40371a3280b7f5377c7a4808.gif ）<br>
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/100f21ef40371a3280b7f5377c7a4808.gif"/></div>  
 <br>
-百度地图：采用MapView控件来显示地图，标记点信息从Bmob后端云获取标志点信息，获取到信息后进行以下操作：
-1、定义Maker坐标点  
-LatLng point = new LatLng(39.963175, 116.400244);  
-2、构建Marker图标  
-BitmapDescriptor bitmap = BitmapDescriptorFactory  
-    .fromResource(R.drawable.icon_marka);  
-3、构建MarkerOption，用于在地图上添加Marker  
-OverlayOptions option = new MarkerOptions()  
-    .position(point)  
-    .icon(bitmap);  
+百度地图：采用MapView控件来显示地图，标记点信息从Bmob后端云获取标志点信息，获取到信息后进行以下操作：<br>
+1、定义Maker坐标点<br>
+LatLng point = new LatLng(39.963175, 116.400244);<br>
+2、构建Marker图标<br>
+BitmapDescriptor bitmap = BitmapDescriptorFactory<br>
+    .fromResource(R.drawable.icon_marka);<br>
+3、构建MarkerOption，用于在地图上添加Marker <br>
+OverlayOptions option = new MarkerOptions()<br>
+    .position(point)<br>
+    .icon(bitmap);<br>
 （不显示请点击链接：http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/d5f86bf1401815148058c6f894dd596e.gif ）<br>
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/100f21ef40371a3280b7f5377c7a4808.gif"/></div>  
 <br>
