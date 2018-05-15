@@ -84,4 +84,5 @@ mBusLineSearch.searchBusLine((new BusLineSearchOption()
 ### 4、推送功能：
 此外还集成了Bmob的PUSH功能，采用Service服务来使得软件在运行状态能随时接受到Bmob后台推送过来的消息
 
-
+|E-mail|：qmskmcc@qq.com 
+欢迎联系交流
