@@ -41,7 +41,7 @@ OverlayOptions option = new MarkerOptions()<br>
 头像更改：采用开源框架CircleImageView用来显示圆形头像，头像首先通过BmobQuery来查询头像url,然后建立HttpURLConnection连接，通过InputStream获取到图片数据流后，通过BitmapFactory.decodeStream()方法来将数据流转化为bmp图像，将此bmp图像复制给CircleImageView控件即可显示。（不显示请点击链接：http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/f98b4eba409e9fd280fa4d5e9c423635.gif ）
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/f98b4eba409e9fd280fa4d5e9c423635.gif"/></div> 
 ### 3、更多界面：
-界面截图：<br>
+界面截图：
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/fa658d9140312ca1803ea30db89e9670.png"/></div>  
 <br>
 
