@@ -8,6 +8,6 @@
 # `校园助手程序部分在MyApplication文件夹下`
 ## 软件界面截图：
 ### 主界面：
-![主界面] http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/dc295f18401ea32e803dcdb8c408154a.gif
+[![主界面]](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/dc295f18401ea32e803dcdb8c408154a.gif)
 ### 我的信息界面：
 ### 更多界面：
