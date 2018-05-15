@@ -5,4 +5,4 @@
 - fragment1.xml为广场的布局，其内包含TableLayout布局，布局内包含多个按钮，多个按钮设立监听器，触发时出现新的Activity，各个Activity内完成相应的功能；
 - fragment2.xml为我的布局，其内主要包含修改个人信息的功能，其他信息随后添加
 - fragment3.xml为更多的布局，....
-#'校园助手程序部分在MyApplication文件夹下'
+# '校园助手程序部分在MyApplication文件夹下'
