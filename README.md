@@ -32,7 +32,40 @@ BitmapDescriptor bitmap = BitmapDescriptorFactory<br>
 3、构建MarkerOption，用于在地图上添加Marker <br>
 OverlayOptions option = new MarkerOptions()<br>
     .position(point)<br>
-    .icon(bitmap);<br>
+    .icon(bitmap);<br>
+以上操作即可实现标志点的绘制，最后在onsetOnMarkerClickListener()中来响应点击标志点的操作，信息窗为自定义的xml布局，然后通过以下操作即可完成信息窗的弹出：<br>
+LatLng pt = new LatLng(marker.getPosition().latitude,marker.getPosition().longitude);<br>
+//创建InfoWindow , 传入 view， 地理坐标， y 轴偏移量<br>
+InfoWindow mInfoWindow = new InfoWindow(view, pt, -47);<br>
+//显示InfoWindow<br>
+baiduMap.showInfoWindow(mInfoWindow);<br>
+公交信息的检索：<br>
+1发起POI检索，获取相应线路的UID；<br>
+//以城市内检索为例，详细方法请参考POI检索部分的相关介绍  <br>
+mSearch.searchInCity((new PoiCitySearchOption())  <br>
+    .city(“北京”)  <br>
+    .keyword(“302”);<br>
+2在POI检索结果中判断该POI类型是否为公交信息；<br>
+public void onGetPoiResult(PoiResult result) {  <br>
+    if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {  <br>
+        return;  <br>
+    }  <br>
+    //遍历所有POI，找到类型为公交线路的POI  <br>
+    for (PoiInfo poi : result.getAllPoi()) {  <br>
+        if (poi.type == PoiInfo.POITYPE.BUS_LINE ||poi.type == PoiInfo.POITYPE.SUBWAY_LINE) {  <br>
+            //说明该条POI为公交信息，获取该条POI的UID  <br>
+            busLineId = poi.uid;  <br>
+            break;  <br>
+        }  <br>
+    }  <br>
+}<br>
+3定义并设置公交信息结果监听者（与POI类似），并发起公交详情检索；
+//如下代码为发起检索代码，定义监听者和设置监听器的方法与POI中的类似  
+
+mBusLineSearch.searchBusLine((new BusLineSearchOption()  
+
+    .city(“北京”)  
+    .uid(busLineId)));
 （不显示请点击链接：http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/d5f86bf1401815148058c6f894dd596e.gif ）<br>
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/100f21ef40371a3280b7f5377c7a4808.gif"/></div>  
 <br>
