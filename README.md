@@ -7,7 +7,10 @@
 - fragment3.xml为更多的布局，....
 # `校园助手程序部分在MyApplication文件夹下`
 ## 软件界面截图：
-### 主界面：
+### 1、主界面：
 ![](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/dc295f18401ea32e803dcdb8c408154a.gif)
-### 我的信息界面：
-### 更多界面：
+* 校园招聘
+![](http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/c15004fb405ef4278010e4fc0ded842b.gif)
+
+### 2、我的信息界面：
+### 3、更多界面：
