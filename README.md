@@ -23,10 +23,23 @@
 电话外卖：（不显示请点击链接：http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/100f21ef40371a3280b7f5377c7a4808.gif ）<br>
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/100f21ef40371a3280b7f5377c7a4808.gif"/></div>  
 <br>
-百度地图：
+百度地图：采用MapView控件来显示地图，标记点信息从Bmob后端云获取标志点信息，获取到信息后进行以下操作：
+1、定义Maker坐标点  
+LatLng point = new LatLng(39.963175, 116.400244);  
+2、构建Marker图标  
+BitmapDescriptor bitmap = BitmapDescriptorFactory  
+    .fromResource(R.drawable.icon_marka);  
+3、构建MarkerOption，用于在地图上添加Marker  
+OverlayOptions option = new MarkerOptions()  
+    .position(point)  
+    .icon(bitmap);  
+（不显示请点击链接：http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/d5f86bf1401815148058c6f894dd596e.gif ）<br>
+<div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/100f21ef40371a3280b7f5377c7a4808.gif"/></div>  
+<br>
 
 ### 2、我的信息界面：
 头像更改：采用开源框架CircleImageView用来显示圆形头像，头像首先通过BmobQuery来查询头像url,然后建立HttpURLConnection连接，通过InputStream获取到图片数据流后，通过BitmapFactory.decodeStream()方法来将数据流转化为bmp图像，将此bmp图像复制给CircleImageView控件即可显示。（不显示请点击链接：http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/f98b4eba409e9fd280fa4d5e9c423635.gif ）
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/f98b4eba409e9fd280fa4d5e9c423635.gif"/></div> 
 <br>
 ### 3、更多界面：
+
