@@ -47,3 +47,7 @@ OverlayOptions option = new MarkerOptions()<br>
 <div align=center><img width="200" height="350" src="http://bmob-cdn-19122.b0.upaiyun.com/2018/05/15/fa658d9140312ca1803ea30db89e9670.png"/></div>  
 <br>
 
+### 4、推送功能：
+此外还集成了Bmob的PUSH功能，采用Service服务来使得软件在运行状态能随时接受到Bmob后台推送过来的消息
+
+
